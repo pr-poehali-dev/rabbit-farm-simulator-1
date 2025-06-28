@@ -7,7 +7,6 @@ interface NavigationItem {
   name: string;
   icon: string;
   description: string;
-  color: string;
 }
 
 interface NavigationMenuProps {
@@ -22,79 +21,78 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({
   const navigationItems: NavigationItem[] = [
     {
       id: "farm",
-      name: "Ферма",
-      icon: "Barn",
-      description: "Управление кроликами",
-      color: "bg-green-500",
+      name: "Моя Ферма",
+      icon: "Home",
+      description: "Управление фермой",
     },
     {
       id: "warehouse",
       name: "Склад",
       icon: "Package",
       description: "Корм и припасы",
-      color: "bg-blue-500",
     },
     {
       id: "market",
       name: "Рынок",
       icon: "ShoppingCart",
-      description: "Покупка и продажа",
-      color: "bg-yellow-500",
+      description: "Торговля",
     },
     {
       id: "auction",
       name: "Аукцион",
       icon: "Gavel",
       description: "Элитные кролики",
-      color: "bg-purple-500",
     },
     {
       id: "events",
       name: "События",
       icon: "Calendar",
-      description: "Ярмарки и конкурсы",
-      color: "bg-red-500",
-    },
-    {
-      id: "achievements",
-      name: "Достижения",
-      icon: "Award",
-      description: "Прогресс и награды",
-      color: "bg-orange-500",
+      description: "Мероприятия",
     },
   ];
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-      {navigationItems.map((item) => (
-        <Button
-          key={item.id}
-          variant={activeSection === item.id ? "default" : "outline"}
-          className={`h-24 flex flex-col items-center justify-center space-y-2 hover:scale-105 transition-transform ${
-            activeSection === item.id
-              ? "bg-purple-600 text-white"
-              : "hover:bg-gray-50"
-          }`}
-          onClick={() => onSectionChange(item.id)}
-        >
-          <div
-            className={`p-2 rounded-lg ${item.color} ${activeSection === item.id ? "bg-white/20" : ""}`}
+    <div className="w-64 bg-game-panel border-r border-gray-700 h-full">
+      <div className="p-4 border-b border-gray-700">
+        <div className="flex items-center space-x-3">
+          <div className="w-8 h-8 bg-game-accent rounded-lg flex items-center justify-center">
+            <span className="text-white font-bold">🐰</span>
+          </div>
+          <div>
+            <h1 className="text-game-text font-semibold">ЛОГО</h1>
+            <div className="flex items-center space-x-4 text-sm">
+              <span className="text-game-accent">💰 12,450</span>
+              <span className="text-game-text-muted">⭕ 78</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <nav className="p-4 space-y-2">
+        {navigationItems.map((item) => (
+          <Button
+            key={item.id}
+            variant="ghost"
+            className={`w-full justify-start text-left px-3 py-2 h-auto hover:bg-game-card ${
+              activeSection === item.id
+                ? "bg-game-accent text-white hover:bg-game-accent-hover"
+                : "text-game-text-muted hover:text-game-text"
+            }`}
+            onClick={() => onSectionChange(item.id)}
           >
             <Icon
               name={item.icon}
-              size={20}
-              className={
-                activeSection === item.id ? "text-white" : "text-white"
-              }
+              size={18}
+              className="mr-3 flex-shrink-0"
               fallback="Square"
             />
-          </div>
-          <div className="text-center">
-            <div className="font-semibold text-sm">{item.name}</div>
-            <div className="text-xs opacity-75">{item.description}</div>
-          </div>
-        </Button>
-      ))}
+            <div>
+              <div className="font-medium">{item.name}</div>
+              <div className="text-xs opacity-75">{item.description}</div>
+            </div>
+          </Button>
+        ))}
+      </nav>
     </div>
   );
 };

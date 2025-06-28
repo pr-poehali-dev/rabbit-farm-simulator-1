@@ -1,40 +1,57 @@
-#root {
-  margin: 0 auto;
-  text-align: center;
-}
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+@layer base {
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 84% 4.9%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222.2 84% 4.9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 0.5rem;
+    --sidebar-background: 220 13% 18%;
+    --sidebar-foreground: 220 9% 46%;
+    --sidebar-primary: 220 14.3% 95.9%;
+    --sidebar-primary-foreground: 220.9 39.3% 11%;
+    --sidebar-accent: 220 14.3% 95.9%;
+    --sidebar-accent-foreground: 220.9 39.3% 11%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Темная тема для игры */
+    --game-bg: 210 11% 10%;
+    --game-panel: 210 9% 18%;
+    --game-card: 210 8% 20%;
+    --game-accent: 142 76% 36%;
+    --game-accent-hover: 142 76% 42%;
+    --game-text: 210 40% 98%;
+    --game-text-muted: 215 16% 60%;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+@layer base {
+  * {
+    @apply border-border;
   }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Inter", system-ui, sans-serif;
   }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }

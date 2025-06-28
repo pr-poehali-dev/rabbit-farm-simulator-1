@@ -27,6 +27,18 @@ const config: Config = {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+
+        // Игровая тема
+        game: {
+          bg: "hsl(var(--game-bg))",
+          panel: "hsl(var(--game-panel))",
+          card: "hsl(var(--game-card))",
+          accent: "hsl(var(--game-accent))",
+          "accent-hover": "hsl(var(--game-accent-hover))",
+          text: "hsl(var(--game-text))",
+          "text-muted": "hsl(var(--game-text-muted))",
+        },
+
         primary: {
           DEFAULT: "#8B5CF6",
           foreground: "hsl(var(--primary-foreground))",
